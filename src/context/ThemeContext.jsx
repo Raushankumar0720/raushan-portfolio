@@ -21,6 +21,18 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('rk-portfolio-theme', theme);
+
+    // Update Favicon dynamically using the theme emoji
+    const emoji = THEME_META[theme].emoji;
+    const svgFavicon = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">${emoji}</text></svg>`;
+    
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = svgFavicon;
   }, [theme]);
 
   const cycleTheme = () => {
