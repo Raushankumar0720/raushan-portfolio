@@ -117,4 +117,4 @@ A professional, high-performance personal portfolio built with **React.js** and 
 This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
 ---
-*Crafted with 💻 by [Raushan Kumar](https://github.com/RaushanKumar)*
+*Crafted with 💻 by [Raushan Kumar](https://github.com/Raushankumar0720/Raushankumar0720)*
