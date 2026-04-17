@@ -1,0 +1,183 @@
+/* ========================================
+   THEME SYSTEM — 5 Premium Curated Palettes
+   ======================================== */
+
+/* ---------- DARK (Standard) ---------- */
+[data-theme="dark"] {
+  --bg-primary: #0a0a12;
+  --bg-secondary: #10101c;
+  --bg-tertiary: #181828;
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a0bc;
+  --text-muted: #60607a;
+  --accent: #818cf8;
+  --accent-secondary: #c084fc;
+  --accent-glow: rgba(129, 140, 248, 0.25);
+  --card-bg: #14142a;
+  --card-border: rgba(129, 140, 248, 0.12);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 12px 40px rgba(129, 140, 248, 0.15);
+  --glass-bg: rgba(10, 10, 18, 0.75);
+  --glass-border: rgba(129, 140, 248, 0.12);
+  --nav-bg: rgba(10, 10, 18, 0.88);
+  --grid-color: rgba(129, 140, 248, 0.04);
+  --badge-bg: rgba(129, 140, 248, 0.12);
+  --badge-text: #818cf8;
+  --input-bg: #14142a;
+  --input-border: #2a2a44;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --info: #60a5fa;
+  --danger: #f87171;
+  --gradient-hero: linear-gradient(135deg, #0a0a12 0%, #12102a 50%, #0a0a12 100%);
+  --gradient-card: linear-gradient(135deg, rgba(129, 140, 248, 0.04), rgba(192, 132, 252, 0.04));
+  --divider: rgba(129, 140, 248, 0.08);
+  --status-live: #34d399;
+  --status-progress: #fbbf24;
+  --status-planned: #60a5fa;
+}
+
+/* ---------- INDUSTRIAL (Midnight Black & Gold) ---------- */
+[data-theme="industrial"] {
+  --bg-primary: #080808;
+  --bg-secondary: #0f0f0f;
+  --bg-tertiary: #161616;
+  --text-primary: #f2f2f2;
+  --text-secondary: #a0a0a0;
+  --text-muted: #555555;
+  --accent: #E6B325; 
+  --accent-secondary: #ffcc33;
+  --accent-glow: rgba(230, 179, 37, 0.2);
+  --card-bg: #121212;
+  --card-border: rgba(230, 179, 37, 0.1);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --card-hover-shadow: 0 20px 40px rgba(230, 179, 37, 0.1);
+  --glass-bg: rgba(8, 8, 8, 0.85);
+  --glass-border: rgba(230, 179, 37, 0.1);
+  --nav-bg: rgba(8, 8, 8, 0.9);
+  --grid-color: rgba(230, 179, 37, 0.03);
+  --badge-bg: rgba(230, 179, 37, 0.1);
+  --badge-text: #E6B325;
+  --input-bg: #121212;
+  --input-border: #222222;
+  --success: #00ff88;
+  --warning: #ffcc00;
+  --info: #00eeff;
+  --danger: #ff3333;
+  --gradient-hero: linear-gradient(135deg, #080808 0%, #151515 50%, #080808 100%);
+  --gradient-card: linear-gradient(135deg, rgba(230, 179, 37, 0.02), rgba(230, 179, 37, 0.05));
+  --divider: rgba(230, 179, 37, 0.05);
+  --status-live: #00ff88;
+  --status-progress: #ffcc00;
+  --status-planned: #00eeff;
+}
+
+/* ---------- NORDIC (Gallery/Minimal) ---------- */
+[data-theme="nordic"] {
+  --bg-primary: #F4F7F6;
+  --bg-secondary: #E8EDEB;
+  --bg-tertiary: #DDE4E1;
+  --text-primary: #1A1C1B;
+  --text-secondary: #4A4D4C;
+  --text-muted: #8E9491;
+  --accent: #2D3748; 
+  --accent-secondary: #4A5568;
+  --accent-glow: rgba(45, 55, 72, 0.15);
+  --card-bg: #FFFFFF;
+  --card-border: rgba(45, 55, 72, 0.1);
+  --card-shadow: 0 8px 32px rgba(45, 55, 72, 0.05);
+  --card-hover-shadow: 0 16px 48px rgba(45, 55, 72, 0.1);
+  --glass-bg: rgba(244, 247, 246, 0.8);
+  --glass-border: rgba(45, 55, 72, 0.1);
+  --nav-bg: rgba(244, 247, 246, 0.9);
+  --grid-color: rgba(45, 55, 72, 0.03);
+  --badge-bg: rgba(45, 55, 72, 0.05);
+  --badge-text: #2D3748;
+  --input-bg: #FFFFFF;
+  --input-border: #E2E8F0;
+  --success: #38A169;
+  --warning: #D69E2E;
+  --info: #3182CE;
+  --danger: #E53E3E;
+  --gradient-hero: linear-gradient(135deg, #F4F7F6 0%, #E2E8F0 100%);
+  --gradient-card: linear-gradient(135deg, rgba(45, 55, 72, 0.01), rgba(45, 55, 72, 0.02));
+  --divider: rgba(45, 55, 72, 0.05);
+  --status-live: #38A169;
+  --status-progress: #D69E2E;
+  --status-planned: #3182CE;
+}
+
+/* ---------- ORGANIC (Cyber Green) ---------- */
+[data-theme="organic"] {
+  --bg-primary: #060907;
+  --bg-secondary: #0a0e0b;
+  --bg-tertiary: #101511;
+  --text-primary: #E2E8E4;
+  --text-secondary: #A3B3A9;
+  --text-muted: #627268;
+  --accent: #00FF9D; 
+  --accent-secondary: #3DFFB1;
+  --accent-glow: rgba(0, 255, 157, 0.2);
+  --card-bg: #0D130F;
+  --card-border: rgba(0, 255, 157, 0.1);
+  --card-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  --card-hover-shadow: 0 20px 60px rgba(0, 255, 157, 0.15);
+  --glass-bg: rgba(6, 9, 7, 0.85);
+  --glass-border: rgba(0, 255, 157, 0.1);
+  --nav-bg: rgba(6, 9, 7, 0.9);
+  --grid-color: rgba(0, 255, 157, 0.03);
+  --badge-bg: rgba(0, 255, 157, 0.1);
+  --badge-text: #00FF9D;
+  --input-bg: #0D130F;
+  --input-border: #1a251e;
+  --success: #00FF9D;
+  --warning: #FFD700;
+  --info: #00D1FF;
+  --danger: #FF4D4D;
+  --gradient-hero: linear-gradient(135deg, #060907 0%, #0c1811 50%, #060907 100%);
+  --gradient-card: linear-gradient(135deg, rgba(0, 255, 157, 0.02), rgba(0, 255, 157, 0.05));
+  --divider: rgba(0, 255, 157, 0.05);
+  --status-live: #00FF9D;
+  --status-progress: #FFD700;
+  --status-planned: #00D1FF;
+}
+
+/* ---------- CUPERTINO (Apple-like) ---------- */
+[data-theme="cupertino"] {
+  --bg-primary: #FBFBFD;
+  --bg-secondary: #F5F5F7;
+  --bg-tertiary: #E8E8ED;
+  --text-primary: #1D1D1F;
+  --text-secondary: #424245;
+  --text-muted: #86868B;
+  --accent: #0066CC; /* Apple Blue */
+  --accent-secondary: #0077FF;
+  --accent-glow: rgba(0, 102, 204, 0.1);
+  --card-bg: #FFFFFF;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(251, 251, 253, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --nav-bg: rgba(251, 251, 253, 0.8);
+  --grid-color: rgba(0, 0, 0, 0.03);
+  --badge-bg: rgba(0, 102, 204, 0.08);
+  --badge-text: #0066CC;
+  --input-bg: #FFFFFF;
+  --input-border: #D2D2D7;
+  --success: #28CD41;
+  --warning: #FF9F0A;
+  --info: #007AFF;
+  --danger: #FF3B30;
+  --gradient-hero: linear-gradient(180deg, #FFFFFF 0%, #FBFBFD 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(245, 245, 247, 0.5));
+  --divider: rgba(0, 0, 0, 0.08);
+  --status-live: #28CD41;
+  --status-progress: #FF9F0A;
+  --status-planned: #007AFF;
+}
+
+/* ---------- Theme Transition ---------- */
+[data-theme] * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
