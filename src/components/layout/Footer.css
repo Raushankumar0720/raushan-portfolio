@@ -1,0 +1,173 @@
+.footer {
+  padding: 3rem 0 2rem;
+  border-top: 1px solid var(--divider);
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.footer-signature {
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+  opacity: 0.9;
+  width: 200px;
+  height: 60px;
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+.footer-tagline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.footer-time {
+  color: var(--accent);
+  margin-top: 0.2rem;
+  display: inline-block;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.footer-social-link:hover {
+  transform: translateY(-2px);
+}
+
+.footer-social-link.gh:hover {
+  border-color: #333;
+  color: var(--text-primary);
+  background: rgba(100, 100, 100, 0.1);
+  box-shadow: 0 4px 14px rgba(100, 100, 100, 0.2);
+}
+
+.footer-social-link.li:hover {
+  border-color: #0077b5;
+  color: #0077b5;
+  background: rgba(0, 119, 181, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 119, 181, 0.3);
+}
+
+.footer-social-link.x:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: rgba(100, 100, 100, 0.1);
+  box-shadow: 0 4px 14px rgba(100, 100, 100, 0.2);
+}
+
+.footer-social-link.yt:hover {
+  border-color: #ff0000;
+  color: #ff0000;
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+}
+
+.footer-social-link.lc:hover {
+  border-color: #ffa116;
+  color: #ffa116;
+  background: rgba(255, 161, 22, 0.1);
+  box-shadow: 0 4px 14px rgba(255, 161, 22, 0.3);
+}
+
+.footer-social-link.sl:hover {
+  border-color: #15c39a;
+  color: #15c39a;
+  background: rgba(21, 195, 154, 0.1);
+  box-shadow: 0 4px 14px rgba(21, 195, 154, 0.3);
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-back-top {
+  position: absolute;
+  right: 2rem;
+  top: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-back-top {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
