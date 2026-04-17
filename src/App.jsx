@@ -32,7 +32,7 @@ export default function App() {
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Raushan Kumar | Full Stack Developer" />
           <meta property="og:description" content="Full Stack Developer from Ahmedabad, India. Building performant, elegant web apps." />
-          <meta property="og:url" content="https://raushan-portfolio.vercel.app" />
+          <meta property="og:url" content="https://raushankumar-dev.vercel.app" />
           <meta property="og:site_name" content="Raushan Kumar Portfolio" />
 
           {/* Twitter */}
@@ -42,7 +42,7 @@ export default function App() {
           <meta name="twitter:creator" content="@RaushanKum68222" />
 
           {/* Canonical */}
-          <link rel="canonical" href="https://raushan-portfolio.vercel.app" />
+          <link rel="canonical" href="https://raushankumar-dev.vercel.app" />
         </Helmet>
 
         <ScrollProgress />
