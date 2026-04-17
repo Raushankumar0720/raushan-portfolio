@@ -1,0 +1,137 @@
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 4rem auto 0;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--card-border);
+  transform: translateX(-50%);
+}
+
+.timeline-line-progress {
+  width: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 3rem;
+  z-index: 1;
+}
+
+.timeline-item.left {
+  align-self: flex-start;
+  text-align: right;
+}
+
+.timeline-item.right {
+  align-self: flex-end;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.timeline-item.left .timeline-dot {
+  right: -20px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -20px;
+}
+
+.timeline-dot-inner {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.timeline-content {
+  padding: 1.5rem !important;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.timeline-year {
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 700;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    align-self: flex-start !important;
+    text-align: left !important;
+    padding-left: 5rem;
+    padding-right: 0;
+  }
+  
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-item {
+    padding-left: 4rem;
+  }
+  .timeline-line {
+    left: 20px;
+  }
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 0px;
+  }
+}
