@@ -1,0 +1,195 @@
+/* ========================================
+   RESPONSIVE — Breakpoint Overrides
+   ======================================== */
+
+/* ---------- Desktop (1281px+) ---------- */
+@media (min-width: 1281px) {
+  .container { max-width: 1200px; }
+  .container-lg { max-width: 1400px; }
+}
+
+/* ---------- Laptop (1024px - 1280px) ---------- */
+@media (max-width: 1280px) {
+  .container { max-width: 960px; }
+  .section { padding: 5rem 0; }
+}
+
+/* ---------- Tablet Landscape (769px - 1024px) ---------- */
+@media (max-width: 1024px) {
+  .container { max-width: 720px; padding: 0 1.5rem; }
+  .section { padding: 4rem 0; }
+  h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+  h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
+}
+
+/* ---------- Tablet Portrait (481px - 768px) ---------- */
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+  .section { padding: 3.5rem 0; }
+
+  h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+  h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+  h3 { font-size: 1.15rem; }
+
+  .hide-mobile { display: none !important; }
+}
+
+/* ---------- Mobile (max 480px) ---------- */
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  .container { padding: 0 1rem; }
+  .section { padding: 3rem 0; }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.1rem; }
+
+  p { font-size: 0.9rem; }
+}
+
+/* ---- Navbar Responsive ---- */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-mobile-toggle {
+    display: flex !important;
+  }
+
+  .mobile-menu {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-mobile-toggle {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* ---- Hero Responsive ---- */
+@media (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left {
+    align-items: center;
+  }
+
+  .hero-avatar-wrapper {
+    width: 250px;
+    height: 250px;
+    margin-top: 2rem;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-avatar-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-floating-badge {
+    display: none;
+  }
+}
+
+/* ---- Projects Responsive ---- */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-filters {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+/* ---- Tech Stack Responsive ---- */
+@media (max-width: 768px) {
+  .techstack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .techstack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Certificates Responsive ---- */
+@media (max-width: 1024px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Hackathon Responsive ---- */
+@media (max-width: 768px) {
+  .hackathon-entry {
+    flex-direction: column;
+  }
+
+  .hackathon-team {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hackathon-team {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Contact Responsive ---- */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    order: 2;
+  }
+
+  .contact-info {
+    order: 1;
+  }
+}
+
+/* ---- Footer Responsive ---- */
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
