@@ -1,0 +1,36 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-family: 'JetBrains Mono', monospace;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge-default {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  border-color: var(--card-border);
+}
+
+.badge-status {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
