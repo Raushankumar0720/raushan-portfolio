@@ -22,9 +22,18 @@ export function ThemeProvider({ children }) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('rk-portfolio-theme', theme);
 
-    // Update Favicon dynamically using the theme emoji
-    const emoji = THEME_META[theme].emoji;
-    const svgFavicon = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">${emoji}</text></svg>`;
+    // Dynamic 'RK' Logo Favicon matching Theme color
+    const color = THEME_META[theme].color;
+    const encodedColor = encodeURIComponent(color);
+    const bgColor = theme === 'cupertino' || theme === 'nordic' ? '%23ffffff' : '%23111111';
+
+    const svgFavicon = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <polygon points="50,2 96,25 96,75 50,98 4,75 4,25" fill="none" stroke="${encodedColor}" stroke-width="4" opacity="0.5"/>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="${encodedColor}" stroke-width="2" stroke-dasharray="4 8" opacity="0.8" />
+      <polygon points="50,12 83,31 83,69 50,88 17,69 17,31" fill="none" stroke="%23888888" stroke-width="2" opacity="0.4"/>
+      <circle cx="50" cy="50" r="32" fill="${bgColor}" />
+      <text x="50" y="55" font-family="monospace" font-weight="900" font-size="34" fill="${encodedColor}" text-anchor="middle" dominant-baseline="middle">RK</text>
+    </svg>`;
     
     let link = document.querySelector("link[rel~='icon']");
     if (!link) {
