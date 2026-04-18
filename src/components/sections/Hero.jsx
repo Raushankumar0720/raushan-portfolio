@@ -47,7 +47,7 @@ function FloatingBadge({ label, emoji, x, y, delay }) {
       style={{
         left: x,
         top: y,
-        transform: props.y.to((y) => `translateY(${y}px)`),
+        transform: props.y.to((y) => `translate3d(0, ${y}px, 0)`),
       }}
     >
       <span>{emoji}</span>
@@ -120,9 +120,10 @@ export default function Hero() {
       <motion.div
         className="hero-aura"
         animate={{
-          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, var(--accent-glow), transparent 80%)`,
+          x: mousePos.x - 300,
+          y: mousePos.y - 300,
         }}
-        transition={{ type: 'tween', ease: 'backOut', duration: 0.5 }}
+        transition={{ type: 'spring', damping: 30, stiffness: 200, mass: 0.5 }}
       />
       <div className="hero-grid-bg grid-bg animate-grid" />
 
@@ -278,6 +279,7 @@ export default function Hero() {
                       src="/profile.jpg"
                       alt="Raushan Kumar"
                       className="hero-avatar-photo"
+                      loading="lazy"
                     />
                   </motion.div>
                 ) : (

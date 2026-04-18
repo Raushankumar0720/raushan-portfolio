@@ -13,7 +13,7 @@ export default function SectionHeader({ number, title, subtitle, align = 'center
       <div className="section-header-top">
         <span className="section-number mono">{number}</span>
         <span className="section-divider" />
-        <span className="section-label mono">{title.toUpperCase()}</span>
+        <h2 className="section-label mono">{title.toUpperCase()}</h2>
       </div>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}
     </motion.div>

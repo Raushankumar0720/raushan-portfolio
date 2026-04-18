@@ -18,10 +18,14 @@
 
 .hero-aura {
   position: absolute;
-  inset: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
   pointer-events: none;
   z-index: 1;
   opacity: 0.6;
+  filter: blur(40px);
+  will-change: transform;
 }
 
 .hero-content {

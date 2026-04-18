@@ -99,12 +99,14 @@ export default function Projects() {
                             src={project.thumbnail} 
                             alt={`${project.title} default`}
                             className="project-thumbnail-img primary"
+                            loading="lazy"
                           />
                           {project.thumbnailHover && (
                             <img 
                               src={project.thumbnailHover} 
                               alt={`${project.title} hover`}
                               className="project-thumbnail-img hover"
+                              loading="lazy"
                             />
                           )}
                         </>

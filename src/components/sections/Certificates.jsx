@@ -42,7 +42,7 @@ export default function Certificates() {
                   >
                     {cert.image ? (
                       <div className="cert-image-container">
-                        <img src={cert.image} alt={cert.title} className="cert-image" />
+                        <img src={cert.image} alt={cert.title} className="cert-image" loading="lazy" />
                         <div className="cert-image-overlay">
                           <FaAward className="cert-overlay-icon" />
                         </div>
@@ -123,7 +123,7 @@ export default function Certificates() {
               
               <div className="cert-lightbox-visual">
                 {selectedCert.image ? (
-                  <img src={selectedCert.image} alt={selectedCert.title} className="cert-lightbox-img" />
+                  <img src={selectedCert.image} alt={selectedCert.title} className="cert-lightbox-img" loading="lazy" />
                 ) : (
                   <FaAward className="cert-lightbox-icon" />
                 )}
