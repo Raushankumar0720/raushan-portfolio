@@ -149,8 +149,25 @@
   height: 10px;
   border-radius: 50%;
   background: var(--success);
-  animation: pulseGlow 2s ease-in-out infinite;
+  position: relative;
   flex-shrink: 0;
+}
+
+.contact-avail-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--success);
+  opacity: 0.4;
+  filter: blur(2px);
+  animation: pulseGlowAvail 2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes pulseGlowAvail {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.6); opacity: 0.1; }
 }
 
 .contact-avail-text {

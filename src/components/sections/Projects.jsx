@@ -63,12 +63,11 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <motion.div className="projects-grid" layout>
+        <div className="projects-grid">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
               <motion.div
                 key={project.id}
-                layout
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: -20 }}
@@ -180,7 +179,7 @@ export default function Projects() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
 
       {/* Project Detail Modal */}

@@ -16,9 +16,9 @@ function SkillBar({ name, icon: Icon, color, level, index }) {
     if (barRef.current) {
       gsap.fromTo(
         barRef.current,
-        { width: '0%' },
+        { scaleX: 0 },
         {
-          width: `${level}%`,
+          scaleX: level / 100,
           duration: 1.2,
           ease: 'power3.out',
           scrollTrigger: {

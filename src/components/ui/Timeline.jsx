@@ -32,8 +32,8 @@ export default function Timeline() {
       <div className="timeline-line">
         <motion.div 
           className="timeline-line-progress"
-          initial={{ height: 0 }}
-          whileInView={{ height: '100%' }}
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
           viewport={{ once: false }}
           transition={{ duration: 1.5, ease: 'easeInOut' }}
         />

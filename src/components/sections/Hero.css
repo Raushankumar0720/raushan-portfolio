@@ -64,7 +64,24 @@
   height: 8px;
   border-radius: 50%;
   background: var(--accent);
-  animation: pulseGlow 2s ease-in-out infinite;
+  position: relative;
+}
+
+.hero-status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+  filter: blur(2px);
+  animation: pulseGlowScale 2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes pulseGlowScale {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.6); opacity: 0.1; }
 }
 
 /* Name */
@@ -219,26 +236,25 @@
   z-index: 2;
   overflow: hidden;
   box-shadow:
-    0 0 30px var(--accent-glow),
-    0 0 60px rgba(0, 0, 0, 0.1),
-    inset 0 0 30px rgba(0, 0, 0, 0.05);
-  animation: avatarGlow 4s ease-in-out infinite;
+    0 0 20px var(--accent-glow),
+    0 0 40px rgba(0, 0, 0, 0.08);
 }
 
-@keyframes avatarGlow {
-  0%, 100% {
-    box-shadow:
-      0 0 20px var(--accent-glow),
-      0 0 40px rgba(0, 0, 0, 0.08);
-    border-color: var(--card-border);
-  }
-  50% {
-    box-shadow:
-      0 0 35px var(--accent-glow),
-      0 0 70px var(--accent-glow),
-      0 0 100px rgba(0, 0, 0, 0.05);
-    border-color: var(--accent);
-  }
+.hero-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  opacity: 0;
+  animation: avatarPulse 4s ease-in-out infinite;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+@keyframes avatarPulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.5; }
 }
 
 /* Profile Photo */
