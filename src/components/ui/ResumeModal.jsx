@@ -38,7 +38,9 @@ export default function ResumeModal({ isOpen, onClose, resumeUrl }) {
           <div className="resume-modal-body">
             {/* Using iframe to display PDF - satisfies "No auto-download" rule */}
             <iframe
-              src={`${resumeUrl}#toolbar=0`}
+              src={resumeUrl.includes('drive.google.com') 
+                ? resumeUrl.replace('/view', '/preview').split('?')[0] 
+                : `${resumeUrl}#toolbar=0`}
               title="Resume Preview"
               className="resume-iframe"
               width="100%"

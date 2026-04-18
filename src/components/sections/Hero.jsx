@@ -129,7 +129,7 @@ export default function Hero() {
       <ResumeModal 
         isOpen={isResumeOpen} 
         onClose={() => setIsResumeOpen(false)} 
-        resumeUrl="/resume.pdf" 
+        resumeUrl="https://drive.google.com/file/d/1ghzMByfSxU7Ye7apOz4h2zpVZFADKnVe/view?usp=sharing" 
       />
 
       <div className="container hero-content">
