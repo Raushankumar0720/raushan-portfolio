@@ -22,14 +22,13 @@ export default function AnimatedText({
   };
 
   const child = {
-    hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
         type: 'spring',
-        damping: 20,
+        damping: 25,
         stiffness: 200,
       },
     },

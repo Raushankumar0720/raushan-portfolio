@@ -60,14 +60,10 @@ const avatarVariants = {
   enter: {
     opacity: 0,
     scale: 0.85,
-    rotateY: 90,
-    filter: 'blur(8px)',
   },
   center: {
     opacity: 1,
     scale: 1,
-    rotateY: 0,
-    filter: 'blur(0px)',
     transition: {
       duration: 0.6,
       ease: [0.25, 0.46, 0.45, 0.94],
@@ -76,8 +72,6 @@ const avatarVariants = {
   exit: {
     opacity: 0,
     scale: 0.85,
-    rotateY: -90,
-    filter: 'blur(8px)',
     transition: {
       duration: 0.5,
       ease: [0.25, 0.46, 0.45, 0.94],
@@ -165,9 +159,9 @@ export default function Hero() {
               <motion.span
                 key={roleIndex}
                 className="hero-tagline-text"
-                initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -15, filter: 'blur(4px)' }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
               >
                 {roleTitles[roleIndex]}
