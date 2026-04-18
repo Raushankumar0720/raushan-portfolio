@@ -29,6 +29,6 @@ export const PERSONAL = {
   bio: 'I craft performant, elegant web apps — from pixel-perfect frontends to scalable backend systems. Based in Ahmedabad, building for the world.',
   email: 'raushan.singh.cg@gmail.com',
   location: 'Ahmedabad, India',
-  resumeUrl: '#',
-  resumeStatus: 'Coming Soon',
+  resumeUrl: 'https://drive.google.com/file/d/1abrPqRQ6y7R9mHiPYWB4oSATsClXwzgZ/view?usp=sharing',
+  resumeStatus: 'Updated',
 };
