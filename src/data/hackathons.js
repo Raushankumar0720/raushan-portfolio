@@ -3,7 +3,7 @@ export const offlineHackathons = [
     id: 3,
     name: "CodingGita HackSprint '26",
     organizer: 'CodingGita',
-    date: 'July 11, 2026',
+    date: 'July 10-11, 2026',
     location: 'Kalol, Ahmedabad, India',
     duration: '30 Hours',
     result: '🥈 2nd Place — Won ₹3,000 Cash Prize',
