@@ -10,7 +10,7 @@ export const offlineHackathons = [
     project: {
       name: 'digital-twin-autopilot',
       description: 'An AI-powered digital twin autopilot application that automates interactions and tasks. Supports seamless integration with Telegram and WhatsApp.',
-      techStack: ['React', 'Node.js', 'Telegram API', 'WhatsApp API'],
+      techStack: ['React', 'Node.js', 'Python', 'CSS', 'Telegram API', 'WhatsApp API'],
       repoUrl: 'https://github.com/Raushankumar0720/digital-twin-autopilot.git',
       problemStatement: {
         coreProblem: "In the modern digital age, individuals are bombarded with an uninterrupted stream of messages across multiple communication platforms. While these tools enable instant connectivity, they have also created a persistent state of obligatory availability—a condition where disconnecting from communication channels feels unacceptable, yet staying connected drains cognitive energy and interrupts deep work, rest, and personal time.",
