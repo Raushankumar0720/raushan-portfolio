@@ -208,12 +208,16 @@ function HackathonEntry({ hack, type }) {
         <div className="hackathon-entry">
           {/* Left: Certificate + Info */}
           <div className="hackathon-main">
-            {/* Certificate placeholder */}
+            {/* Certificate placeholder / image */}
             <div className="hackathon-cert-visual" onClick={triggerConfetti} style={{ cursor: 'pointer' }}>
-              <div className="hackathon-cert-placeholder">
-                <FaTrophy className="hackathon-cert-icon" />
-                <span className="mono hackathon-cert-label">Certificate</span>
-              </div>
+              {hack.certificate ? (
+                <img src={hack.certificate} alt={`${hack.name} Certificate`} className="hackathon-cert-img" />
+              ) : (
+                <div className="hackathon-cert-placeholder">
+                  <FaTrophy className="hackathon-cert-icon" />
+                  <span className="mono hackathon-cert-label">Certificate</span>
+                </div>
+              )}
             </div>
 
             <div className="hackathon-info">

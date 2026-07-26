@@ -476,12 +476,6 @@
   flex-shrink: 0;
 }
 
-.team-member-info-mini {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
 .team-member-name-mini {
   font-size: 0.8rem;
   font-weight: 700;
@@ -492,4 +486,19 @@
   font-size: 0.7rem;
   color: var(--text-muted);
 }
+
+.hackathon-cert-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--bg-tertiary);
+  padding: 0.4rem;
+  transition: transform 0.3s ease;
+}
+
+.hackathon-cert-visual:hover .hackathon-cert-img {
+  transform: scale(1.03);
+}
+
+
 

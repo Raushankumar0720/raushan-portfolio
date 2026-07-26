@@ -14,7 +14,6 @@ export const offlineHackathons = [
       repoUrl: 'https://github.com/Raushankumar0720/digital-twin-autopilot.git',
     },
     images: [
-      '/hackathons/hacksprint/hacksprint_1.png',
       '/hackathons/hacksprint/hacksprint_2.png',
       '/hackathons/hacksprint/hacksprint_3.png',
       '/hackathons/hacksprint/hacksprint_4.jpg',
@@ -50,7 +49,7 @@ export const offlineHackathons = [
         color: '#e84393',
       },
     ],
-    certificate: null,
+    certificate: '/hackathons/hacksprint/hacksprint_1.png',
   },
   {
     id: 1,
