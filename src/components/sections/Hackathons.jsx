@@ -8,15 +8,106 @@ import Card from '../ui/Card';
 import { offlineHackathons, onlineHackathons } from '../../data/hackathons';
 import './Hackathons.css';
 
-function TeamCarousel({ members }) {
+function TeamCarousel({ hack }) {
+  const { teamMembers: members, images } = hack;
   const [activeIdx, setActiveIdx] = useState(0);
+  const isImageMode = images && images.length > 0;
 
   useEffect(() => {
+    if (!isImageMode) return;
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [isImageMode, images]);
+
+  useEffect(() => {
+    if (isImageMode) return;
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % members.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [members.length]);
+  }, [isImageMode, members.length]);
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    const totalCount = isImageMode ? images.length : members.length;
+    setActiveIdx((prev) => (prev - 1 + totalCount) % totalCount);
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    const totalCount = isImageMode ? images.length : members.length;
+    setActiveIdx((prev) => (prev + 1) % totalCount);
+  };
+
+  if (isImageMode) {
+    return (
+      <div className="team-carousel has-images">
+        {/* Upper Half: Image slider with Prev/Next buttons */}
+        <div className="team-image-slider">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeIdx}
+              src={images[activeIdx]}
+              alt={`Hackathon moment ${activeIdx + 1}`}
+              className="team-slider-image"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+            />
+          </AnimatePresence>
+
+          {/* Navigation buttons */}
+          <button className="team-slider-nav prev" onClick={handlePrev} aria-label="Previous image">
+            &#10094;
+          </button>
+          <button className="team-slider-nav next" onClick={handleNext} aria-label="Next image">
+            &#10095;
+          </button>
+
+          {/* Dots indicating current image */}
+          <div className="team-slider-dots">
+            {images.map((_, i) => (
+              <span
+                key={i}
+                className={`team-slider-dot ${i === activeIdx ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveIdx(i);
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Lower Half: Name of all members */}
+        <div className="team-members-section">
+          <div className="team-carousel-header">
+            <FaUsers className="team-icon" />
+            <span className="mono team-label">Team Members</span>
+          </div>
+          <div className="team-members-list">
+            {members.map((m, i) => (
+              <div key={i} className="team-member-item">
+                <div
+                  className="team-member-avatar-mini"
+                  style={{ background: m.color }}
+                >
+                  {m.initials || m.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div className="team-member-info-mini">
+                  <span className="team-member-name-mini">{m.name}</span>
+                  <span className="team-member-role-mini">{m.role}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="team-carousel">
@@ -179,7 +270,7 @@ function HackathonEntry({ hack, type }) {
 
           {/* Right: Team Members (offline only) */}
           {type === 'offline' && hack.teamMembers && (
-            <TeamCarousel members={hack.teamMembers} />
+            <TeamCarousel hack={hack} />
           )}
         </div>
       </Card>

@@ -1,5 +1,58 @@
 export const offlineHackathons = [
   {
+    id: 3,
+    name: "CodingGita HackSprint '26",
+    organizer: 'CodingGita',
+    date: 'July 11, 2026',
+    location: 'Ahmedabad, India',
+    duration: '24 Hours',
+    result: '🥈 2nd Place — Best Automation & Autopilot Agent',
+    project: {
+      name: 'digital-twin-autopilot',
+      description: 'An AI-powered digital twin autopilot application that automates interactions and tasks. Supports seamless integration with Telegram and WhatsApp.',
+      techStack: ['React', 'Node.js', 'Telegram API', 'WhatsApp API'],
+      repoUrl: 'https://github.com/Raushankumar0720/digital-twin-autopilot.git',
+    },
+    images: [
+      '/hackathons/hacksprint/hacksprint_1.png',
+      '/hackathons/hacksprint/hacksprint_2.png',
+      '/hackathons/hacksprint/hacksprint_3.png',
+      '/hackathons/hacksprint/hacksprint_4.jpg',
+      '/hackathons/hacksprint/hacksprint_5.jpg',
+    ],
+    teamMembers: [
+      {
+        name: 'Ankit Singh',
+        role: 'Team Leader',
+        avatar: null,
+        initials: 'AS',
+        color: '#ff7675',
+      },
+      {
+        name: 'Raushan Kumar',
+        role: 'Full Stack Developer',
+        avatar: null,
+        initials: 'RK',
+        color: '#6c5ce7',
+      },
+      {
+        name: 'Nitish Kumar',
+        role: 'Backend Developer',
+        avatar: null,
+        initials: 'NK',
+        color: '#0984e3',
+      },
+      {
+        name: 'Jilan Mansuri',
+        role: 'Frontend Developer',
+        avatar: null,
+        initials: 'JM',
+        color: '#e84393',
+      },
+    ],
+    certificate: null,
+  },
+  {
     id: 1,
     name: 'HackIndia 2025 — Ahmedabad Regional',
     organizer: 'HackIndia Foundation',

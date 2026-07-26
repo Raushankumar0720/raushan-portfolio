@@ -355,3 +355,141 @@
     border-top: 1px solid var(--card-border);
   }
 }
+
+/* Image Slider inside Team Carousel */
+.team-image-slider {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  background: var(--bg-primary);
+}
+
+.team-slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation buttons */
+.team-slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  user-select: none;
+  z-index: 2;
+}
+
+.team-slider-nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+  scale: 1.05;
+}
+
+.team-slider-nav.prev {
+  left: 8px;
+}
+
+.team-slider-nav.next {
+  right: 8px;
+}
+
+/* Indicator dots */
+.team-slider-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.team-slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.team-slider-dot.active {
+  background: #fff;
+  scale: 1.2;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+/* Lower section members list */
+.team-members-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.team-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.team-member-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease;
+}
+
+.team-member-item:hover {
+  border-color: var(--accent);
+  transform: translateX(3px);
+}
+
+.team-member-avatar-mini {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.team-member-info-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.team-member-name-mini {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.team-member-role-mini {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
