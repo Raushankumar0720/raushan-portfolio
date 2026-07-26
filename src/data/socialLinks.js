@@ -22,7 +22,7 @@ export const socialLinks = [
   },
   {
     name: 'YouTube',
-    url: 'https://www.youtube.com/@codePressure',
+    url: 'https://www.youtube.com/@raushannkumar07',
     icon: FaYoutube,
     label: 'YT',
   },
