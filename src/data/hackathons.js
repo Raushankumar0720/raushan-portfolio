@@ -12,6 +12,19 @@ export const offlineHackathons = [
       description: 'An AI-powered digital twin autopilot application that automates interactions and tasks. Supports seamless integration with Telegram and WhatsApp.',
       techStack: ['React', 'Node.js', 'Telegram API', 'WhatsApp API'],
       repoUrl: 'https://github.com/Raushankumar0720/digital-twin-autopilot.git',
+      problemStatement: {
+        coreProblem: "In the modern digital age, individuals are bombarded with an uninterrupted stream of messages across multiple communication platforms. While these tools enable instant connectivity, they have also created a persistent state of obligatory availability—a condition where disconnecting from communication channels feels unacceptable, yet staying connected drains cognitive energy and interrupts deep work, rest, and personal time.",
+        painPoints: [
+          { title: "Unavailability", desc: "Users cannot reply to every message while sleeping, in meetings, working deeply, or taking time offline." },
+          { title: "Loss of Personal Touch", desc: "Traditional auto-replies are generic and robotic. They fail to capture the user's unique tone, humor, slang, or emotional nuance." },
+          { title: "Relationship Mismatch", desc: "A single tone does not suit all contacts. Users speak differently to their boss, best friend, partner, and a stranger." },
+          { title: "Context Amnesia", desc: "Existing AI agents have no memory of previous conversations, resulting in frustrating, repetitive, and inhuman interactions." },
+          { title: "Platform Fragmentation", desc: "Users receive messages on Telegram, WhatsApp, and more. Managing independent responders is tedious and inconsistent." },
+          { title: "Privacy & Control", desc: "Delegating replies to an AI raises privacy concerns. There is currently no intuitive, instant 'kill switch' for sensitive contexts." }
+        ],
+        targetAudience: "Working professionals, remote workers, busy professionals, and digital minimalists looking to reduce notification overload without appearing unreachable.",
+        desiredOutcome: "A fully autonomous, cross-platform Digital Twin Autopilot that listens to incoming messages on Telegram and WhatsApp, learns the user's unique tone and style, recalls conversation history using RAG, and remains instantly controllable via a global web dashboard with a Kill Switch."
+      }
     },
     images: [
       '/hackathons/hacksprint/hacksprint_2.png',

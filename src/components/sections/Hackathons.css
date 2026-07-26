@@ -211,6 +211,24 @@
   color: var(--bg-primary);
 }
 
+.hackathon-link-local {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border-color: var(--card-border);
+  cursor: default;
+}
+
+.hackathon-link-local:hover {
+  color: var(--text-muted);
+  border-color: var(--card-border);
+}
+
+.hackathon-link-ps {
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 /* Team Carousel */
 .team-carousel {
   width: 280px;

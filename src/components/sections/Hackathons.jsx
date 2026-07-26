@@ -180,6 +180,7 @@ function TeamCarousel({ hack, onImageClick }) {
 function HackathonEntry({ hack, type }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [activeZoomIdx, setActiveZoomIdx] = useState(null);
+  const [isPsOpen, setIsPsOpen] = useState(false);
 
   const triggerConfetti = (e) => {
     e.stopPropagation();
@@ -289,10 +290,22 @@ function HackathonEntry({ hack, type }) {
                         <FaGithub /> Repository
                       </a>
                     )}
-                    {hack.project.demoUrl && (
+                    {hack.project.demoUrl ? (
                       <a href={hack.project.demoUrl} target="_blank" rel="noopener noreferrer" className="hackathon-link hackathon-link-primary">
                         <FaArrowUpRightFromSquare /> Live Demo
                       </a>
+                    ) : (
+                      <span className="hackathon-link hackathon-link-local" title="Presented locally at the hackathon, not deployed online">
+                        🖥️ Local Demo
+                      </span>
+                    )}
+                    {hack.project.problemStatement && (
+                      <button 
+                        onClick={() => setIsPsOpen(true)} 
+                        className="hackathon-link hackathon-link-ps"
+                      >
+                        📄 Problem Statement
+                      </button>
                     )}
                   </div>
                 </div>
@@ -360,6 +373,91 @@ function HackathonEntry({ hack, type }) {
                   </button>
                 </>
               )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isPsOpen && hack.project.problemStatement && (
+          <motion.div
+            className="hackathon-lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsPsOpen(false)}
+          >
+            <motion.div
+              className="hackathon-lightbox-content ps-modal"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                maxWidth: '650px',
+                width: '100%',
+                backgroundColor: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
+                borderRadius: '16px',
+                padding: '2rem',
+                maxHeight: '85vh',
+                overflowY: 'auto',
+                display: 'block',
+                cursor: 'default'
+              }}
+            >
+              <button
+                className="hackathon-lightbox-close"
+                onClick={() => setIsPsOpen(false)}
+                style={{ top: '15px', right: '15px' }}
+              >
+                &times;
+              </button>
+
+              <div className="ps-modal-header" style={{ marginBottom: '1.5rem', borderBottom: '1px solid var(--card-border)', paddingBottom: '0.75rem' }}>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--accent)', lineHeight: '1.3' }}>
+                  Problem Statement: {hack.project.name}
+                </h3>
+                <span className="mono" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                  {hack.name} — {hack.result}
+                </span>
+              </div>
+
+              <div className="ps-modal-body" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', fontSize: '0.88rem', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
+                <div>
+                  <h4 style={{ color: 'var(--text-primary)', fontWeight: 700, marginBottom: '0.4rem', fontSize: '0.95rem' }}>
+                    🚨 Core Problem
+                  </h4>
+                  <p>{hack.project.problemStatement.coreProblem}</p>
+                </div>
+
+                <div>
+                  <h4 style={{ color: 'var(--text-primary)', fontWeight: 700, marginBottom: '0.5rem', fontSize: '0.95rem' }}>
+                    🔥 Key Pain Points
+                  </h4>
+                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingLeft: '1.2rem', margin: 0 }}>
+                    {hack.project.problemStatement.painPoints.map((pp, idx) => (
+                      <li key={idx}>
+                        <strong>{pp.title}</strong>: {pp.desc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 style={{ color: 'var(--text-primary)', fontWeight: 700, marginBottom: '0.4rem', fontSize: '0.95rem' }}>
+                    🎯 Target Audience
+                  </h4>
+                  <p>{hack.project.problemStatement.targetAudience}</p>
+                </div>
+
+                <div>
+                  <h4 style={{ color: 'var(--text-primary)', fontWeight: 700, marginBottom: '0.4rem', fontSize: '0.95rem' }}>
+                    🚀 Desired Outcome
+                  </h4>
+                  <p>{hack.project.problemStatement.desiredOutcome}</p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
