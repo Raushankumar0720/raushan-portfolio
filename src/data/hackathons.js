@@ -4,9 +4,9 @@ export const offlineHackathons = [
     name: "CodingGita HackSprint '26",
     organizer: 'CodingGita',
     date: 'July 11, 2026',
-    location: 'Ahmedabad, India',
-    duration: '24 Hours',
-    result: '🥈 2nd Place — Best Automation & Autopilot Agent',
+    location: 'Kalol, Ahmedabad, India',
+    duration: '30 Hours',
+    result: '🥈 2nd Place — Won ₹3,000 Cash Prize',
     project: {
       name: 'digital-twin-autopilot',
       description: 'An AI-powered digital twin autopilot application that automates interactions and tasks. Supports seamless integration with Telegram and WhatsApp.',
