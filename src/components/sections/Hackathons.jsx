@@ -176,6 +176,8 @@ function TeamCarousel({ hack }) {
 }
 
 function HackathonEntry({ hack, type }) {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
   const triggerConfetti = (e) => {
     e.stopPropagation();
     const rect = e.currentTarget.getBoundingClientRect();
@@ -192,93 +194,190 @@ function HackathonEntry({ hack, type }) {
     });
   };
 
+  const handleCertClick = (e) => {
+    if (hack.certificate) {
+      setIsLightboxOpen(true);
+    } else {
+      triggerConfetti(e);
+    }
+  };
+
   return (
-    <Tilt
-      tiltMaxAngleX={5}
-      tiltMaxAngleY={5}
-      scale={1.01}
-      transitionSpeed={1500}
-      glareEnable={true}
-      glareMaxOpacity={0.05}
-      glareColor="#ffffff"
-      glarePosition="all"
-      glareBorderRadius="24px"
-    >
-      <Card className="hackathon-card" glow>
-        <div className="hackathon-entry">
-          {/* Left: Certificate + Info */}
-          <div className="hackathon-main">
-            {/* Certificate placeholder / image */}
-            <div className="hackathon-cert-visual" onClick={triggerConfetti} style={{ cursor: 'pointer' }}>
-              {hack.certificate ? (
-                <img src={hack.certificate} alt={`${hack.name} Certificate`} className="hackathon-cert-img" />
-              ) : (
-                <div className="hackathon-cert-placeholder">
-                  <FaTrophy className="hackathon-cert-icon" />
-                  <span className="mono hackathon-cert-label">Certificate</span>
-                </div>
-              )}
-            </div>
-
-            <div className="hackathon-info">
-              <h3 className="hackathon-name">{hack.name}</h3>
-              <div className="hackathon-meta">
-                {type === 'offline' ? (
-                  <span className="hackathon-meta-item">
-                    <FaLocationDot /> {hack.location}
-                  </span>
-                ) : (
-                  <span className="hackathon-meta-item">
-                    🌐 {hack.platform}
-                  </span>
-                )}
-                <span className="hackathon-meta-item">
-                  <FaClock /> {hack.date} · {hack.duration}
-                </span>
-              </div>
-
+    <>
+      <Tilt
+        tiltMaxAngleX={5}
+        tiltMaxAngleY={5}
+        scale={1.01}
+        transitionSpeed={1500}
+        glareEnable={true}
+        glareMaxOpacity={0.05}
+        glareColor="#ffffff"
+        glarePosition="all"
+        glareBorderRadius="24px"
+      >
+        <Card className="hackathon-card" glow>
+          <div className="hackathon-entry">
+            {/* Left: Certificate + Info */}
+            <div className="hackathon-main">
+              {/* Certificate placeholder / image */}
               <div 
-                className="hackathon-result" 
-                onClick={triggerConfetti}
-                style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                className="hackathon-cert-visual" 
+                onClick={handleCertClick} 
+                style={{ cursor: hack.certificate ? 'zoom-in' : 'pointer' }}
               >
-                {hack.result} {hack.result.toLowerCase().includes('winner') && '🏆'}
+                {hack.certificate ? (
+                  <>
+                    <img src={hack.certificate} alt="" className="hackathon-cert-img-blur" />
+                    <img src={hack.certificate} alt={`${hack.name} Certificate`} className="hackathon-cert-img" />
+                  </>
+                ) : (
+                  <div className="hackathon-cert-placeholder">
+                    <FaTrophy className="hackathon-cert-icon" />
+                    <span className="mono hackathon-cert-label">Certificate</span>
+                  </div>
+                )}
               </div>
 
-              {/* Project Details */}
-              <div className="hackathon-project">
-                <h4 className="hackathon-project-name">
-                  📦 {hack.project.name}
-                </h4>
-                <p className="hackathon-project-desc">{hack.project.description}</p>
-                <div className="hackathon-tech">
-                  {hack.project.techStack.map((tech) => (
-                    <span key={tech} className="hackathon-tech-tag mono">{tech}</span>
-                  ))}
+              <div className="hackathon-info">
+                <h3 className="hackathon-name">{hack.name}</h3>
+                <div className="hackathon-meta">
+                  {type === 'offline' ? (
+                    <span className="hackathon-meta-item">
+                      <FaLocationDot /> {hack.location}
+                    </span>
+                  ) : (
+                    <span className="hackathon-meta-item">
+                      🌐 {hack.platform}
+                    </span>
+                  )}
+                  <span className="hackathon-meta-item">
+                    <FaClock /> {hack.date} · {hack.duration}
+                  </span>
                 </div>
-                <div className="hackathon-project-links">
-                  {hack.project.repoUrl && (
-                    <a href={hack.project.repoUrl} target="_blank" rel="noopener noreferrer" className="hackathon-link">
-                      <FaGithub /> Repository
-                    </a>
-                  )}
-                  {hack.project.demoUrl && (
-                    <a href={hack.project.demoUrl} target="_blank" rel="noopener noreferrer" className="hackathon-link hackathon-link-primary">
-                      <FaArrowUpRightFromSquare /> Live Demo
-                    </a>
-                  )}
+
+                <div 
+                  className="hackathon-result" 
+                  onClick={triggerConfetti}
+                  style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                >
+                  {hack.result} {hack.result.toLowerCase().includes('winner') && '🏆'}
+                </div>
+
+                {/* Project Details */}
+                <div className="hackathon-project">
+                  <h4 className="hackathon-project-name">
+                    📦 {hack.project.name}
+                  </h4>
+                  <p className="hackathon-project-desc">{hack.project.description}</p>
+                  <div className="hackathon-tech">
+                    {hack.project.techStack.map((tech) => (
+                      <span key={tech} className="hackathon-tech-tag mono">{tech}</span>
+                    ))}
+                  </div>
+                  <div className="hackathon-project-links">
+                    {hack.project.repoUrl && (
+                      <a href={hack.project.repoUrl} target="_blank" rel="noopener noreferrer" className="hackathon-link">
+                        <FaGithub /> Repository
+                      </a>
+                    )}
+                    {hack.project.demoUrl && (
+                      <a href={hack.project.demoUrl} target="_blank" rel="noopener noreferrer" className="hackathon-link hackathon-link-primary">
+                        <FaArrowUpRightFromSquare /> Live Demo
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Right: Team Members (offline only) */}
-          {type === 'offline' && hack.teamMembers && (
-            <TeamCarousel hack={hack} />
-          )}
-        </div>
-      </Card>
-    </Tilt>
+            {/* Right: Team Members (offline only) */}
+            {type === 'offline' && hack.teamMembers && (
+              <TeamCarousel hack={hack} />
+            )}
+          </div>
+        </Card>
+      </Tilt>
+
+      <AnimatePresence>
+        {isLightboxOpen && hack.certificate && (
+          <motion.div
+            className="hackathon-lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsLightboxOpen(false)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.85)',
+              zIndex: 99999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '1.5rem',
+              cursor: 'zoom-out'
+            }}
+          >
+            <motion.div
+              className="hackathon-lightbox-content"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                position: 'relative',
+                maxWidth: '95%',
+                maxHeight: '90%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <button
+                className="hackathon-lightbox-close"
+                onClick={() => setIsLightboxOpen(false)}
+                style={{
+                  position: 'absolute',
+                  top: '-45px',
+                  right: '0',
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '50%',
+                  color: '#fff',
+                  width: '36px',
+                  height: '36px',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.2s ease',
+                  lineHeight: '1',
+                  paddingBottom: '4px'
+                }}
+              >
+                &times;
+              </button>
+              <img
+                src={hack.certificate}
+                alt={`${hack.name} Certificate Zoom`}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '82vh',
+                  borderRadius: '12px',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+                  objectFit: 'contain',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
