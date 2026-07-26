@@ -9,7 +9,7 @@ import './About.css';
 const stats = [
   { label: 'Projects Built', value: '13+', icon: <FaCode /> },
   { label: 'Technologies', value: '25+', icon: <FaRocket /> },
-  { label: 'Certifications', value: '6', icon: <FaGraduationCap /> },
+  { label: 'Certifications', value: '8', icon: <FaGraduationCap /> },
 ];
 
 export default function About() {
