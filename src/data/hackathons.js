@@ -31,6 +31,7 @@ export const offlineHackathons = [
       '/hackathons/hacksprint/hacksprint_3.png',
       '/hackathons/hacksprint/hacksprint_4.jpg',
       '/hackathons/hacksprint/hacksprint_5.jpg',
+      '/hackathons/hacksprint/hacksprint_6.jpg',
     ],
     teamMembers: [
       {
