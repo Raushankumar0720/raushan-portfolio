@@ -172,17 +172,23 @@ export const projects = [
   // ========== FULL STACK / MERN (2) ==========
   {
     id: 12,
-    title: 'NexCart',
+    title: 'BYND',
     category: 'fullstack',
-    description: 'End-to-end e-commerce platform with product catalog, cart system, user auth, order tracking, Stripe payments, and admin dashboard.',
-    techStack: ['Next.js', 'Node.js', 'MongoDB', 'Stripe', 'Redux Toolkit'],
-    status: 'planned',
-    thumbnail: null,
+    description: 'No-code bidirectional sync engine that eliminates manual data entry. BYND connects Excel, CRM & invoices in real-time with AI-powered field mapping, conflict resolution, and automatic global tax compliance — saving global SMBs 16+ hours/week.',
+    techStack: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'Axios', 'Vite', 'REST API'],
+    status: 'live',
+    thumbnail: '/projects/bynd/bynd_1.png',
+    thumbnails: [
+      '/projects/bynd/bynd_1.png',
+      '/projects/bynd/bynd_2.png',
+      '/projects/bynd/bynd_3.png',
+      '/projects/bynd/bynd_4.png',
+    ],
     links: {
-      live: null,
-      github: 'https://github.com/Raushankumar0720/NexCart',
-      youtube: null,
-      postman: 'https://documenter.getpostman.com/view/example_nexcart',
+      live: 'https://bynd-omega.vercel.app',
+      github: 'https://github.com/Raushankumar0720/bynd.git',
+      youtube: 'https://youtu.be/xutn4mjh1ys',
+      postman: 'https://documenter.getpostman.com/view/50841514/2sBXqMGyrZ',
     },
   },
   {

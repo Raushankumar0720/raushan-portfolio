@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowUpRightFromSquare, FaGithub, FaYoutube, FaXmark, FaLayerGroup, FaGear, FaCode } from 'react-icons/fa6';
 import Tilt from 'react-parallax-tilt';
@@ -7,6 +7,44 @@ import { StatusBadge } from '../ui/Badge';
 import { projects, projectCategories, statusConfig } from '../../data/projects';
 import { useTheme } from '../../context/ThemeContext';
 import './Projects.css';
+
+// Animated thumbnail carousel for projects with multiple screenshots
+function AnimatedThumbnail({ thumbnails, title }) {
+  const [idx, setIdx] = useState(0);
+  const [fading, setFading] = useState(false);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (!thumbnails || thumbnails.length <= 1) return;
+    timerRef.current = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setIdx((prev) => (prev + 1) % thumbnails.length);
+        setFading(false);
+      }, 350);
+    }, 2500);
+    return () => clearInterval(timerRef.current);
+  }, [thumbnails]);
+
+  return (
+    <div className="project-thumb-animated">
+      <img
+        key={idx}
+        src={thumbnails[idx]}
+        alt={`${title} screenshot ${idx + 1}`}
+        className={`project-thumbnail-img primary animated-thumb ${fading ? 'fade-out' : 'fade-in'}`}
+        loading="lazy"
+      />
+      {thumbnails.length > 1 && (
+        <div className="animated-thumb-dots">
+          {thumbnails.map((_, i) => (
+            <span key={i} className={`animated-thumb-dot ${i === idx ? 'active' : ''}`} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -92,7 +130,9 @@ export default function Projects() {
                   >
                     {/* Thumbnail */}
                     <div className="project-thumbnail">
-                      {project.thumbnail ? (
+                      {project.thumbnails && project.thumbnails.length > 0 ? (
+                        <AnimatedThumbnail thumbnails={project.thumbnails} title={project.title} />
+                      ) : project.thumbnail ? (
                         <>
                           <img 
                             src={project.thumbnail} 

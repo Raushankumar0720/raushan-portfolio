@@ -462,3 +462,52 @@
     max-height: 100vh;
   }
 }
+
+/* ===== Animated Thumbnail Carousel ===== */
+.project-thumb-animated {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.project-thumbnail-img.animated-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-thumbnail-img.animated-thumb.fade-in {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.project-thumbnail-img.animated-thumb.fade-out {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.animated-thumb-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+
+.animated-thumb-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.animated-thumb-dot.active {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.3);
+}
