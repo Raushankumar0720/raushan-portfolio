@@ -8,7 +8,7 @@ import Card from '../ui/Card';
 import { offlineHackathons, onlineHackathons } from '../../data/hackathons';
 import './Hackathons.css';
 
-function TeamCarousel({ hack }) {
+function TeamCarousel({ hack, onImageClick }) {
   const { teamMembers: members, images } = hack;
   const [activeIdx, setActiveIdx] = useState(0);
   const isImageMode = images && images.length > 0;
@@ -56,6 +56,8 @@ function TeamCarousel({ hack }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4 }}
+              onClick={() => onImageClick && onImageClick(activeIdx)}
+              style={{ cursor: 'zoom-in' }}
             />
           </AnimatePresence>
 
@@ -177,6 +179,7 @@ function TeamCarousel({ hack }) {
 
 function HackathonEntry({ hack, type }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [activeZoomIdx, setActiveZoomIdx] = useState(null);
 
   const triggerConfetti = (e) => {
     e.stopPropagation();
@@ -196,10 +199,16 @@ function HackathonEntry({ hack, type }) {
 
   const handleCertClick = (e) => {
     if (hack.certificate) {
+      setActiveZoomIdx(null);
       setIsLightboxOpen(true);
     } else {
       triggerConfetti(e);
     }
+  };
+
+  const handleTeamImageClick = (index) => {
+    setActiveZoomIdx(index);
+    setIsLightboxOpen(true);
   };
 
   return (
@@ -292,34 +301,20 @@ function HackathonEntry({ hack, type }) {
 
             {/* Right: Team Members (offline only) */}
             {type === 'offline' && hack.teamMembers && (
-              <TeamCarousel hack={hack} />
+              <TeamCarousel hack={hack} onImageClick={handleTeamImageClick} />
             )}
           </div>
         </Card>
       </Tilt>
 
       <AnimatePresence>
-        {isLightboxOpen && hack.certificate && (
+        {isLightboxOpen && (hack.certificate || (activeZoomIdx !== null && hack.images)) && (
           <motion.div
             className="hackathon-lightbox-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsLightboxOpen(false)}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.85)',
-              zIndex: 99999,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '1.5rem',
-              cursor: 'zoom-out'
-            }}
           >
             <motion.div
               className="hackathon-lightbox-content"
@@ -327,52 +322,44 @@ function HackathonEntry({ hack, type }) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              style={{
-                position: 'relative',
-                maxWidth: '95%',
-                maxHeight: '90%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
             >
               <button
                 className="hackathon-lightbox-close"
                 onClick={() => setIsLightboxOpen(false)}
-                style={{
-                  position: 'absolute',
-                  top: '-45px',
-                  right: '0',
-                  background: 'rgba(0, 0, 0, 0.5)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  borderRadius: '50%',
-                  color: '#fff',
-                  width: '36px',
-                  height: '36px',
-                  fontSize: '1.5rem',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  transition: 'all 0.2s ease',
-                  lineHeight: '1',
-                  paddingBottom: '4px'
-                }}
               >
                 &times;
               </button>
+
               <img
-                src={hack.certificate}
-                alt={`${hack.name} Certificate Zoom`}
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '82vh',
-                  borderRadius: '12px',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
-                  objectFit: 'contain',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
+                src={activeZoomIdx !== null ? hack.images[activeZoomIdx] : hack.certificate}
+                alt={activeZoomIdx !== null ? `Hackathon Image ${activeZoomIdx + 1}` : `${hack.name} Certificate`}
+                className="hackathon-lightbox-img"
               />
+
+              {activeZoomIdx !== null && hack.images && hack.images.length > 1 && (
+                <>
+                  <button
+                    className="hackathon-lightbox-nav prev"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveZoomIdx((prev) => (prev - 1 + hack.images.length) % hack.images.length);
+                    }}
+                    aria-label="Previous image"
+                  >
+                    &#10094;
+                  </button>
+                  <button
+                    className="hackathon-lightbox-nav next"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveZoomIdx((prev) => (prev + 1) % hack.images.length);
+                    }}
+                    aria-label="Next image"
+                  >
+                    &#10095;
+                  </button>
+                </>
+              )}
             </motion.div>
           </motion.div>
         )}
