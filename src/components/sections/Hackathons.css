@@ -476,6 +476,12 @@
   flex-shrink: 0;
 }
 
+.team-member-info-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
 .team-member-name-mini {
   font-size: 0.8rem;
   font-weight: 700;
