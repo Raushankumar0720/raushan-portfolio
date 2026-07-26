@@ -10,7 +10,8 @@ A professional, high-performance personal portfolio built with **React.js** and 
 ---
 
 ## 🌟 Live Demo
-[View Live Site](https://raushankumar-dev.vercel.app/)
+<a href="https://raushankumar-dev.vercel.app/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+
 
 ---
 
