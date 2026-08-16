@@ -664,5 +664,462 @@
   }
 }
 
+/* ========================================
+   Dossier Layout Redesign (HackSprint '26)
+   ======================================== */
 
+.dossier-wrapper {
+  background-color: #0F1116;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #2A2F3A;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Inter', sans-serif;
+}
 
+/* Stamp Rail */
+.dossier-stamp-rail {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: #2A2F3A transparent;
+}
+
+.dossier-stamp-rail::-webkit-scrollbar {
+  height: 6px;
+}
+
+.dossier-stamp-rail::-webkit-scrollbar-thumb {
+  background-color: #2A2F3A;
+  border-radius: 3px;
+}
+
+.dossier-stamp-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  outline: none;
+  transition: opacity 0.3s ease;
+  min-width: 90px;
+}
+
+.dossier-stamp-medallion {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #191D24;
+  border: 2px solid #2A2F3A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.dossier-stamp-button.active .dossier-stamp-medallion {
+  border-color: #D4A73D;
+  box-shadow: 0 0 8px rgba(212, 167, 61, 0.4);
+}
+
+.dossier-stamp-button.inactive {
+  opacity: 0.4;
+}
+
+.dossier-stamp-button.inactive:hover {
+  opacity: 0.7;
+}
+
+.dossier-stamp-label {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: #9AA1AE;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dossier-stamp-button.active .dossier-stamp-label {
+  color: #EDEEF2;
+  font-weight: bold;
+}
+
+/* Dossier Card Container */
+.dossier-card {
+  background-color: #14171C;
+  border: 1px solid #2A2F3A;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ribbon Badge */
+.dossier-ribbon {
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  background-color: #D4A73D;
+  color: #0F1116;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.35rem 2.5rem;
+  transform: rotate(45deg);
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dossier-ribbon-pulse {
+  animation: ribbonPulse 2.5s ease-in-out infinite;
+}
+
+.dossier-ribbon-pulse:hover {
+  transform: rotate(45deg) scale(1.08);
+  box-shadow: 0 0 16px rgba(212, 167, 61, 0.6);
+}
+
+@keyframes ribbonPulse {
+  0%, 100% {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(212, 167, 61, 0.45);
+  }
+}
+
+/* Zone 1: Header */
+.dossier-header {
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid #2A2F3A;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.dossier-eyebrow {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #5F5E5A;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.dossier-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #EDEEF2;
+  line-height: 1.15;
+  max-width: 85%;
+}
+
+.dossier-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.dossier-meta-item {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: #9AA1AE;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dossier-meta-icon {
+  font-size: 0.85rem;
+  color: #3FB89C;
+}
+
+/* Zone 2: Hero + Filmstrip */
+.dossier-gallery {
+  border-bottom: 1px solid #2A2F3A;
+  background-color: #0F1116;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.dossier-hero-container {
+  width: 90%;
+  max-height: 420px;
+  height: 380px;
+  background-color: #232833;
+  border: 1px solid #2A2F3A;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dossier-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dossier-filmstrip {
+  width: 90%;
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.dossier-thumb-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex: 0 0 75px;
+  height: 50px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2.5px solid transparent;
+  background-color: #232833;
+  transition: all 0.2s ease;
+}
+
+.dossier-thumb-button.active {
+  border-color: #D4A73D;
+}
+
+.dossier-thumb-button:focus {
+  outline: 2px solid #3FB89C;
+}
+
+.dossier-thumb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+}
+
+.dossier-thumb-button.active .dossier-thumb-image,
+.dossier-thumb-button:hover .dossier-thumb-image {
+  opacity: 1;
+}
+
+/* Zone 3: Body columns */
+.dossier-body {
+  display: grid;
+  grid-template-columns: 62% 38%;
+}
+
+.dossier-left-panel {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dossier-right-panel {
+  padding: 2.5rem;
+  background-color: #191D24;
+  border-left: 1px dashed #2A2F3A;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Left panel items */
+.dossier-project-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #EDEEF2;
+}
+
+.dossier-project-icon {
+  font-size: 1.2rem;
+  color: #3FB89C;
+}
+
+.dossier-project-name {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.dossier-project-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #9AA1AE;
+  line-height: 1.65;
+}
+
+.dossier-section-title {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #5F5E5A;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.dossier-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dossier-tech-chip {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  background-color: rgba(63, 184, 156, 0.08);
+  border: 1px solid rgba(63, 184, 156, 0.25);
+  color: #3FB89C;
+  border-radius: 100px;
+}
+
+.dossier-access-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.dossier-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid #2A2F3A;
+  background-color: #0F1116;
+  color: #EDEEF2;
+}
+
+.dossier-link-button:hover {
+  border-color: #D4A73D;
+  color: #D4A73D;
+}
+
+.dossier-link-button.primary {
+  border-color: rgba(212, 167, 61, 0.5);
+  background-color: rgba(212, 167, 61, 0.1);
+  color: #D4A73D;
+}
+
+.dossier-link-button.primary:hover {
+  background-color: rgba(212, 167, 61, 0.15);
+  border-color: #D4A73D;
+}
+
+/* Right panel crew items */
+.dossier-crew-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dossier-crew-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dossier-crew-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+}
+
+.dossier-crew-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dossier-crew-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #EDEEF2;
+}
+
+.dossier-crew-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #9AA1AE;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .dossier-body {
+    grid-template-columns: 1fr;
+  }
+  .dossier-right-panel {
+    border-left: none;
+    border-top: 1px dashed #2A2F3A;
+    background-color: #191D24;
+  }
+}
+
+@media (max-width: 600px) {
+  .dossier-wrapper {
+    padding: 1.5rem 1rem;
+  }
+  .dossier-header {
+    padding: 1.5rem;
+  }
+  .dossier-title {
+    font-size: 1.75rem;
+    max-width: 100%;
+  }
+  .dossier-hero-container {
+    height: 240px;
+  }
+  .dossier-left-panel,
+  .dossier-right-panel {
+    padding: 1.5rem;
+  }
+}
+
+.dossier-hero-container .team-slider-nav {
+  width: 38px;
+  height: 38px;
+  font-size: 1.1rem;
+  background: rgba(15, 17, 22, 0.6);
+  border: 1px solid rgba(42, 47, 58, 0.8);
+}
+
+.dossier-hero-container .team-slider-nav:hover {
+  background: rgba(15, 17, 22, 0.95);
+  border-color: #D4A73D;
+  color: #D4A73D;
+}
