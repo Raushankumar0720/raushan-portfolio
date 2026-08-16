@@ -22,23 +22,28 @@ export default function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Helmet>
-          <title>Raushan Kumar | Full Stack Developer</title>
-          <meta name="description" content="Raushan Kumar — Full Stack Developer from Ahmedabad, India. Building performant, elegant web apps with React, Node.js, and MongoDB. Open to work." />
-          <meta name="keywords" content="Raushan Kumar, Full Stack Developer, React, Node.js, MongoDB, Portfolio, Ahmedabad, India, MERN Stack" />
+          <title>Raushan Kumar — Full Stack Developer | React, Node.js, MERN Stack Portfolio</title>
+          <meta name="description" content="Raushan Kumar is a Full Stack Developer from Ahmedabad, India specializing in React, Node.js, MongoDB, and the MERN stack. Explore live projects, hackathon wins, and professional experience." />
+          <meta name="keywords" content="Raushan Kumar, Full Stack Developer, React Developer, Node.js Developer, MERN Stack, Frontend Engineer, Ahmedabad Developer, India, Portfolio, Web Developer" />
           <meta name="author" content="Raushan Kumar" />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
           {/* Open Graph */}
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="Raushan Kumar | Full Stack Developer" />
-          <meta property="og:description" content="Full Stack Developer from Ahmedabad, India. Building performant, elegant web apps." />
+          <meta property="og:title" content="Raushan Kumar — Full Stack Developer | React & MERN Stack Portfolio" />
+          <meta property="og:description" content="Full Stack Developer from Ahmedabad, India. Building performant, elegant web apps with React, Node.js, and MongoDB. View live projects and hackathon case studies." />
           <meta property="og:url" content="https://raushankumar-dev.vercel.app" />
+          <meta property="og:image" content="https://raushankumar-dev.vercel.app/og-image.png" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property="og:site_name" content="Raushan Kumar Portfolio" />
+          <meta property="og:locale" content="en_IN" />
 
-          {/* Twitter */}
+          {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Raushan Kumar | Full Stack Developer" />
-          <meta name="twitter:description" content="Full Stack Developer from Ahmedabad, India. Building performant, elegant web apps." />
+          <meta name="twitter:title" content="Raushan Kumar — Full Stack Developer | React & MERN Stack Portfolio" />
+          <meta name="twitter:description" content="Full Stack Developer from Ahmedabad, India. Building performant, elegant web apps with React, Node.js, and MongoDB." />
+          <meta name="twitter:image" content="https://raushankumar-dev.vercel.app/og-image.png" />
           <meta name="twitter:creator" content="@RaushanKum68222" />
 
           {/* Canonical */}

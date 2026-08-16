@@ -146,6 +146,7 @@ export default function Hero() {
 
           <h1 className="hero-name">
             <AnimatedText text="Raushan Kumar." delay={0.2} />
+            <span className="sr-only"> — Full Stack Developer</span>
           </h1>
 
           <motion.div

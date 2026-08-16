@@ -100,6 +100,19 @@ code, .mono {
 .overflow-hidden { overflow: hidden; }
 .w-full { width: 100%; }
 
+/* ---------- Screen Reader Only ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* ---------- Gradient Text ---------- */
 .gradient-text {
   background: linear-gradient(135deg, var(--accent), var(--accent-secondary));

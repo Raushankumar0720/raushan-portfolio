@@ -48,18 +48,13 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <p className="about-intro">
-              I'm <strong>Raushan Kumar</strong>, a self-taught Full Stack Developer from
-              <strong> Ahmedabad, India</strong>. I discovered programming through curiosity
-              — and haven't stopped building since.
+              I am <strong>Raushan Kumar</strong>, a dedicated <strong>Full Stack Developer</strong> and <strong>React Specialist</strong> based in <strong>Ahmedabad, India</strong>. I specialize in building scalable, high-performance web applications using React, Node.js, MongoDB, and modern JavaScript.
             </p>
             <p>
-              I thrive at the intersection of design and engineering. Whether crafting a smooth
-              UI transition or designing a database schema, I approach every layer with the same
-              obsessive attention to detail.
+              I thrive at the intersection of design and engineering. As a full stack engineer, whether crafting responsive frontend interfaces or architecting RESTful APIs and database schemas, I approach every project with clean code standards and obsessive attention to detail.
             </p>
             <p>
-              Currently a fresher actively seeking my first professional role. Open to full-time
-              positions, internships, and freelance work — locally or remotely.
+              Actively seeking full-time Full Stack Developer roles, engineering internships, and technical collaborations — available locally in Ahmedabad or for remote teams worldwide.
             </p>
 
             <div className="about-learning">
