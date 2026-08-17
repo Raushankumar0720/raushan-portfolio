@@ -696,7 +696,7 @@
   width: fit-content;
   margin: 0 auto -0.5rem auto;
   user-select: none;
-  animation: rgbHintPulse 12s linear infinite;
+  animation: rgbHintPulse 36s ease-in-out infinite;
 }
 
 .dossier-hint-icon {
