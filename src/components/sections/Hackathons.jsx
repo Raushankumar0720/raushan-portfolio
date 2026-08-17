@@ -562,6 +562,12 @@ function DossierLayout({ hacks, type }) {
 
   return (
     <div className="dossier-wrapper">
+      {/* Informational Tag Line */}
+      <div className="dossier-stamp-hint">
+        <span className="dossier-hint-icon">💡</span>
+        <span>Click the circles below to explore other hackathons</span>
+      </div>
+
       {/* Stamp Rail */}
       <div className="dossier-stamp-rail" role="tablist" aria-label="Hackathon selector">
         {hacks.map((hack) => {
