@@ -696,7 +696,7 @@
   width: fit-content;
   margin: 0 auto -0.5rem auto;
   user-select: none;
-  animation: rgbHintPulse 5s ease-in-out infinite;
+  animation: rgbHintPulse 12s linear infinite;
 }
 
 .dossier-hint-icon {
@@ -706,33 +706,23 @@
 @keyframes rgbHintPulse {
   0% {
     color: #D4A73D;
-    border: 1px solid rgba(212, 167, 61, 0.7);
-    box-shadow: 0 0 12px rgba(212, 167, 61, 0.4);
-    opacity: 1;
+    border: 1px solid rgba(212, 167, 61, 0.6);
+    box-shadow: 0 0 10px rgba(212, 167, 61, 0.25);
   }
-  25% {
+  33% {
     color: #3FB89C;
-    border: 1px solid rgba(63, 184, 156, 0.35);
-    box-shadow: 0 0 4px rgba(63, 184, 156, 0.1);
-    opacity: 0.55;
+    border: 1px solid rgba(63, 184, 156, 0.6);
+    box-shadow: 0 0 10px rgba(63, 184, 156, 0.25);
   }
-  50% {
-    color: #00cec9;
-    border: 1px solid rgba(0, 206, 201, 0.7);
-    box-shadow: 0 0 12px rgba(0, 206, 201, 0.4);
-    opacity: 1;
-  }
-  75% {
+  66% {
     color: #a29bfe;
-    border: 1px solid rgba(162, 155, 254, 0.35);
-    box-shadow: 0 0 4px rgba(162, 155, 254, 0.1);
-    opacity: 0.55;
+    border: 1px solid rgba(162, 155, 254, 0.6);
+    box-shadow: 0 0 10px rgba(162, 155, 254, 0.25);
   }
   100% {
     color: #D4A73D;
-    border: 1px solid rgba(212, 167, 61, 0.7);
-    box-shadow: 0 0 12px rgba(212, 167, 61, 0.4);
-    opacity: 1;
+    border: 1px solid rgba(212, 167, 61, 0.6);
+    box-shadow: 0 0 10px rgba(212, 167, 61, 0.25);
   }
 }
 
